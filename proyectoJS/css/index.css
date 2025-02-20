@@ -3,7 +3,8 @@ body {
     font-family: Arial, sans-serif;
     background: url('../imagenes/background.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
+    color: #fff;    
+    font-size:0.9rem;
 }
 
 .contenedor {
@@ -26,8 +27,9 @@ body {
 }
 
 .cabecera .titulo {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
+    margin: 20px;
 }
 
 .barraLateral {
@@ -81,6 +83,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
+    margin-top: 5%;
 }
 
 .tabla h2 {
@@ -93,14 +96,42 @@ body {
     font-weight: bold;
 }
 
+.tabla tr:hover{
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor:pointer;
+}
+
+.tabla td{
+    width:fit-content;
+    
+}
 .tabla input,
 .tabla textarea,
 .tabla select{
-    width: 100%;
+    margin:0;
+    width: 90%;
     padding: 10px;
-    margin-bottom: 15px;
     border: none;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.2);
     color: #fff;
+}
+
+.btnLogOut {    
+    padding:8px;
+    border-radius: 5px;
+    width: 6%;
+    height:fit-content;
+    background-color: #5e63b4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align:center;
+    text-decoration:none;
+    margin:20px;
+}
+.btnLogOut:hover, .btnLogOut:active  {
+    background-color: #3f437b;
+    font-size:0.7rem;
 }
