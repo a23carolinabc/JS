@@ -11,11 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
         { usuario: "julio", contrasena: "abc", rol: "tecnico" }
     ];
 
-    document.getElementById("loginForm").addEventListener("submit", (evento) => {
-        evento.preventDefault();
-
-        const usuarioIngresado = document.getElementById("usuario").value;
-        const contrasenaIngresada = document.getElementById("password").value;
+    // Definir la función para iniciar sesión
+    window.iniciarSesion = function () {
+        const usuarioIngresado = document.getElementById("usuario").value.trim();
+        const contrasenaIngresada = document.getElementById("password").value.trim();
                 
         const usuario = usuarios.find(u => u.usuario === usuarioIngresado && u.contrasena === contrasenaIngresada);
         const tecnico = tecnicos.find(t => t.usuario === usuarioIngresado && t.contrasena === contrasenaIngresada);
@@ -31,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
             
             aviso.classList.add('avisoVisible');
             
-            setTimeout(function() {                
+            setTimeout(() => {                
                 aviso.classList.remove('avisoVisible');
             }, 3000);
         }
-    });
+    };
 });

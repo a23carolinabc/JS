@@ -27,15 +27,9 @@ function actualizarTablaTickets() {
         let fila = document.createElement("tr");
         fila.innerHTML = `
             <td>${ticket.id}</td>
-            <td><input type="text" value="${ticket.titulo}" onchange="editarTicket(${ticket.id}, 'titulo', this.value)"></td>
-            <td><input type="text" value="${ticket.descripcion}" onchange="editarTicket(${ticket.id}, 'descripcion', this.value)"></td>
-            <td>
-                <select onchange="editarTicket(${ticket.id}, 'prioridad', this.value)">
-                    <option value="Baja" ${ticket.prioridad === "Baja" ? "selected" : ""}>Baja</option>
-                    <option value="Media" ${ticket.prioridad === "Media" ? "selected" : ""}>Media</option>
-                    <option value="Alta" ${ticket.prioridad === "Alta" ? "selected" : ""}>Alta</option>
-                </select>
-            </td>
+            <td>${ticket.titulo}</td>
+            <td>${ticket.descripcion}</td>
+            <td>${ticket.prioridad}</td>
             <td>${new Date(ticket.fechaCreacion).toLocaleString()}</td>
         `;
         cuerpoTabla.appendChild(fila);

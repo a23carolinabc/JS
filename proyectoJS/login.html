@@ -10,7 +10,7 @@
     <div id="aviso" class="aviso">
         <p>Usuario o contraseña incorrectos</p>
     </div>
-    <form class="contenedor" id="loginForm">            
+    <form class="contenedor" id="loginForm" onsubmit="event.preventDefault(); iniciarSesion();">            
         <h2>Iniciar Sesión</h2>
 
         <input type="text" id="usuario" required placeholder="Usuario" autocomplete="off">
@@ -18,7 +18,7 @@
         <input type="password" id="password" required placeholder="Contraseña">
         <br>
 
-        <button type="submit">Ingresar</button>
+        <button type="submit" onclick="iniciarSesion()">Ingresar</button>
     </form>    
 
     <script src="comprobarCredenciales.js"></script>

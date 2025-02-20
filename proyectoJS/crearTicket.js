@@ -56,3 +56,6 @@ function guardarEnLocalStorage(ticket) {
 function obtenerTicketsDesdeLocalStorage() {
     return JSON.parse(localStorage.getItem("tickets")) || [];
 }
+
+
+

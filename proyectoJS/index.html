@@ -11,7 +11,7 @@
     <div class="contenedor">
         <nav class="cabecera">
             <div class="titulo">Tickets</div>
-            <a href="login.html">Cerrar Sesión</a>
+            <button class="btnLogOut" onclick="cerrarSesion()">Cerrar Sesión</button>
         </nav>
 
         <aside class="barraLateral">
@@ -46,6 +46,7 @@
     
    
     <script src="editarTicket.js"></script>
+    <script src="cerrarSesion.js"></script>
     <script>
         function abrirListado() {
             const sidebar = document.querySelector('.barraLateral');
