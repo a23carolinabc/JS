@@ -15,11 +15,22 @@
         <br>
         <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Descripción"></textarea>
         <br>
-
+        <select name="prioridad" id="prioridad" required>
+            <option value="Baja" selected>Baja</option>
+            <option value="Media">Media</option>
+            <option value="Alta">Alta</option>
+        </select>
+        <br>
+        <select name="departamento" id="departamento" required>
+            <option value="ASIR" selected>ASIR</option>
+            <option value="DAW">DAW</option>
+            <option value="DAM">DAM</option>
+        </select>
+        <br>
         <button type="submit">Crear</button>
     </form>
     <button class="btnLogOut" onclick="cerrarSesion()">Cerrar Sesión</a></button>
-    <script src="crearTicket.js"></script>
-    <script src="cerrarSesion.js"></script>
+    <script src="js/crearTicket.js"></script>
+    <script src="js/cerrarSesion.js"></script>
 </body>
 </html>

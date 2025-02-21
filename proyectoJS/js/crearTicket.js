@@ -1,17 +1,7 @@
 // ***********************
 //  CLASE TICKET
 // ***********************
-class Ticket {
-
-    constructor(id, titulo, descripcion, prioridad) {
-        this.id = id; // ID único autogenerado
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.prioridad = prioridad;
-        this.estado = "sin iniciar";
-        this.fechaCreacion = new Date().toISOString();
-    }
-}
+import { Ticket } from "ticket.js";
 
 // ***********************
 //  CREACIÓN DE TICKETS
@@ -22,18 +12,34 @@ document.getElementById("crearTicket").addEventListener("submit", function(event
     // Obtener valores del formulario
     const titulo = document.getElementById("titulo").value.trim();
     const descripcion = document.getElementById("descripcion").value.trim();
-   
+    const prioridad = document.getElementById("prioridad").value.trim();
+    const departamento = document.getElementById("departamento").value.trim();
+    var tecnico;
+
     // Validar que los campos no estén vacíos
-    if (!titulo || !descripcion) {
+    if (!titulo || !descripcion || !prioridad || !departamento) {
         alert("Por favor, completa todos los campos obligatorios.");
         return;
     }
 
-    // Generar ID único basado en timestamp
-    const id = Date.now();
+    //Asignamos técnicos según departamento
+    switch (departamento) {
+        case "DAM":
+            tecnico = "carol";
+            break;
+        case "DAW":
+            tecnico = "hugo";
+            break;
+        case "ASIR":
+            tecnico = "julio";
+            break;
+        default:
+            break;
+    }
+
 
     // Crear el objeto Ticket
-    const nuevoTicket = new Ticket(id, titulo, descripcion);
+    const nuevoTicket = new Ticket(titulo, descripcion, prioridad, departamento, tecnico);
 
     // Guardar en localStorage
     guardarEnLocalStorage(nuevoTicket);

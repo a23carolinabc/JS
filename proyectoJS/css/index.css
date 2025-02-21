@@ -73,7 +73,7 @@ body {
 }
 
 .barraLateral.abierta ~ .contenido {
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .tabla {
@@ -95,7 +95,9 @@ body {
     margin-bottom: 5px;
     font-weight: bold;
 }
-
+.tabla tr{
+    font-size:1rem;
+}
 .tabla tr:hover{
     background: rgba(255, 255, 255, 0.2);
     color: #fff;
@@ -104,7 +106,8 @@ body {
 
 .tabla td{
     width:fit-content;
-    
+    text-align:center;
+    font-size:0.8rem;    
 }
 .tabla input,
 .tabla textarea,

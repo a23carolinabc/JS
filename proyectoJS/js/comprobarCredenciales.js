@@ -1,14 +1,15 @@
+import Usuario from "./usuario.js";
+
 document.addEventListener("DOMContentLoaded", () => {
+    
     const usuarios = [
-        { usuario: "usuario1", contrasena: "abc", rol: "user" },
-        { usuario: "usuario2", contrasena: "abc", rol: "user" },
-        { usuario: "usuario3", contrasena: "abc", rol: "user" }
+        new Usuario("usuario", "abc", "user")
     ];
 
     const tecnicos = [
-        { usuario: "carol", contrasena: "abc", rol: "tecnico" },
-        { usuario: "hugo", contrasena: "abc", rol: "tecnico" },
-        { usuario: "julio", contrasena: "abc", rol: "tecnico" }
+        new Usuario("carol", "abc", "tecnico"),
+        new Usuario("hugo", "abc", "tecnico"),
+        new Usuario("julio", "abc", "tecnico")
     ];
 
     // Definir la función para iniciar sesión

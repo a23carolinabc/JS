@@ -1,9 +1,6 @@
 // ***********************
 //  EDITAR TICKET
 // ***********************
-document.addEventListener("DOMContentLoaded", () => {
-    actualizarTablaTickets();
-});
 
 function obtenerTicketsDesdeLocalStorage() {
     const tickets = JSON.parse(localStorage.getItem("tickets")) || [];
@@ -23,18 +20,27 @@ function actualizarTablaTickets() {
     // Limpiar contenido previo
     cuerpoTabla.innerHTML = "";
 
+    var tecnicoAutenticado = localStorage.getItem("usuarioAutenticado");
+
     tickets.forEach(ticket => {
-        let fila = document.createElement("tr");
-        fila.innerHTML = `
-            <td>${ticket.id}</td>
-            <td>${ticket.titulo}</td>
-            <td>${ticket.descripcion}</td>
-            <td>${ticket.prioridad}</td>
-            <td>${new Date(ticket.fechaCreacion).toLocaleString()}</td>
-        `;
-        cuerpoTabla.appendChild(fila);
+        if (ticket.tecnico == tecnicoAutenticado) {
+            let fila = document.createElement("tr");
+            fila.innerHTML = `
+                <td>${ticket.titulo}</td>
+                <td>${ticket.descripcion}</td>
+                <td>${ticket.prioridad}</td>
+                <td>${ticket.estado}</td>
+                <td>${ticket.departamento}</td>
+                <td>${new Date(ticket.fechaCreacion).toLocaleString()}</td>
+            `;
+            cuerpoTabla.appendChild(fila);    
+        }        
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarTablaTickets();
+});
 
 function editarTicket(id, campo, valor) {
     let tickets = obtenerTicketsDesdeLocalStorage();
