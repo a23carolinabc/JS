@@ -1,4 +1,4 @@
-import Usuario from "./usuario.js";
+import { Usuario } from "./usuario.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     
