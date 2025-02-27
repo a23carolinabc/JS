@@ -31,23 +31,36 @@ function actualizarTablaTickets() {
                 <td>${ticket.estado}</td>
                 <td>${ticket.departamento}</td>
                 <td>${new Date(ticket.fechaCreacion).toLocaleString()}</td>
+                <td><button id="editar" onclick="editarTicket(${ticket.id})">Editar</button></td>
+                <td><button id="eliminar" onclick="eliminarTicket(${ticket.id})">Eliminar</button></td>
             `;
             cuerpoTabla.appendChild(fila);    
         }        
     });
 }
 
+// Hacerla accesible globalmente
+window.actualizarTablaTickets = actualizarTablaTickets;
+
 document.addEventListener("DOMContentLoaded", () => {
     actualizarTablaTickets();
 });
 
-function editarTicket(id, campo, valor) {
+function editarTicket(id) {
+    // Obtienes los tickets desde el localStorage
     let tickets = obtenerTicketsDesdeLocalStorage();
+
+    // Buscas el ticket con el id correspondiente
     let ticketIndex = tickets.findIndex(ticket => ticket.id === id);
-    
+
     if (ticketIndex !== -1) {
-        tickets[ticketIndex][campo] = valor;
-        localStorage.setItem("tickets", JSON.stringify(tickets));
-        console.log(`Ticket ${id} actualizado:`, tickets[ticketIndex]);
+        // Encuentra el ticket correcto
+        let ticket = tickets[ticketIndex];
+
+        // Guardas el ticket en sessionStorage para accederlo en la página de edición
+        sessionStorage.setItem("ticketToEdit", JSON.stringify(ticket));
+
+        // Rediriges a la página de edición del ticket
+        window.location.href = "formTicket.html";
     }
 }
