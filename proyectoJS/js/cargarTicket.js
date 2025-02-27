@@ -20,10 +20,9 @@ function actualizarTablaTickets() {
     // Limpiar contenido previo
     cuerpoTabla.innerHTML = "";
 
-    var tecnicoAutenticado = localStorage.getItem("usuarioAutenticado");
-
+    var tecnicoAutenticado = JSON.parse(localStorage.getItem("usuarioAutenticado"));
     tickets.forEach(ticket => {
-        if (ticket.tecnico == tecnicoAutenticado) {
+        if (ticket.tecnico == tecnicoAutenticado.usuario) {
             let fila = document.createElement("tr");
             fila.innerHTML = `
                 <td>${ticket.titulo}</td>
