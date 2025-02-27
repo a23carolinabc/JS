@@ -1,7 +1,7 @@
 // ***********************
 //  CLASE TICKET
 // ***********************
-import { Ticket } from "ticket.js";
+import { Ticket } from "./ticket.js";
 
 // ***********************
 //  CREACIÓN DE TICKETS
