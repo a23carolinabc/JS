@@ -1,15 +1,14 @@
 function cargarTicketsFicticios() {
+    // Obtener los tickets existentes (si los hay)
     const ticketsExistentes = JSON.parse(localStorage.getItem("tickets")) || [];
     
-    if (ticketsExistentes.length > 0) {
-        const sobrescribir = confirm("⚠️ ¡Ya hay tickets!\n¿Reemplazarlos con datos de prueba?");
-        if (!sobrescribir) return;
-    }
-
-    // Generador de IDs
-    let idBase = Date.now();
-
-    const tickets = [
+    // Determinar el próximo id: si existen tickets, usar el mayor + 1; si no, iniciar en 1.
+    let idBase = ticketsExistentes.length > 0 
+        ? Math.max(...ticketsExistentes.map(t => t.id)) + 1 
+        : 1;
+    
+    // Definir los nuevos tickets con id autoincremental
+    const nuevosTickets = [
         // DAM - Carol
         {
             id: idBase++,
@@ -31,16 +30,26 @@ function cargarTicketsFicticios() {
             estado: "Sin iniciar",
             fechaCreacion: new Date("2024-03-05").toISOString()
         },
+        {
+            id: idBase++,
+            titulo: "Monitorización de red offline",
+            descripcion: "Nagios no reporta estados desde hace 24h",
+            prioridad: "Baja",
+            departamento: "DAM",
+            tecnico: "carol",
+            estado: "Sin iniciar",
+            fechaCreacion: new Date("2024-03-14").toISOString()
+        },
 
         // DAW - Hugo
         {
             id: idBase++,
             titulo: "API devuelve error 500",
             descripcion: "Fallo en el endpoint /users al consultar roles",
-            prioridad: "Alta",
+            prioridad: "Media",
             departamento: "DAW",
             tecnico: "hugo",
-            estado: "Resuelto",
+            estado: "Sin iniciar",
             fechaCreacion: new Date("2024-03-02").toISOString()
         },
         {
@@ -53,6 +62,16 @@ function cargarTicketsFicticios() {
             estado: "En progreso",
             fechaCreacion: new Date("2024-03-07").toISOString()
         },
+        {
+            id: idBase++,
+            titulo: "Monitorización de red offline",
+            descripcion: "Nagios no reporta estados desde hace 24h",
+            prioridad: "Alta",
+            departamento: "DAW",
+            tecnico: "hugo",
+            estado: "Sin iniciar",
+            fechaCreacion: new Date("2024-03-14").toISOString()
+        },
 
         // ASIR - Julio
         {
@@ -62,7 +81,7 @@ function cargarTicketsFicticios() {
             prioridad: "Alta",
             departamento: "ASIR",
             tecnico: "julio",
-            estado: "Resuelto",
+            estado: "En progreso",
             fechaCreacion: new Date("2024-03-03").toISOString()
         },
         {
@@ -70,6 +89,16 @@ function cargarTicketsFicticios() {
             titulo: "Actualizar certificado SSL",
             descripcion: "Certificado expirado en el dominio principal",
             prioridad: "Media",
+            departamento: "ASIR",
+            tecnico: "julio",
+            estado: "Sin iniciar",
+            fechaCreacion: new Date("2024-03-09").toISOString()
+        },
+        {
+            id: idBase++,
+            titulo: "Actualizar certificado SSL",
+            descripcion: "Certificado expirado en el dominio principal",
+            prioridad: "Baja",
             departamento: "ASIR",
             tecnico: "julio",
             estado: "Sin iniciar",
@@ -84,7 +113,7 @@ function cargarTicketsFicticios() {
             prioridad: "Media",
             departamento: "DAM",
             tecnico: "carol",
-            estado: "En progreso",
+            estado: "Resuelto",
             fechaCreacion: new Date("2024-03-10").toISOString()
         },
         {
@@ -104,7 +133,7 @@ function cargarTicketsFicticios() {
             prioridad: "Alta",
             departamento: "ASIR",
             tecnico: "julio",
-            estado: "En progreso",
+            estado: "Resuelto",
             fechaCreacion: new Date("2024-03-14").toISOString()
         },
         {
@@ -119,8 +148,12 @@ function cargarTicketsFicticios() {
         }
     ];
 
-    localStorage.setItem("tickets", JSON.stringify(tickets));
-    alert("✅ ¡10 tickets de prueba cargados!\nActualiza la página para ver la tabla completa.");
+    // Combinar tickets existentes y nuevos
+    const ticketsCombinados = [...ticketsExistentes, ...nuevosTickets];
+
+    // Guardar el array combinado en localStorage
+    localStorage.setItem("tickets", JSON.stringify(ticketsCombinados));
+    alert("✅ ¡10 tickets de prueba añadidos!\nActualiza la página para ver la tabla completa.");
 }
 
 cargarTicketsFicticios();

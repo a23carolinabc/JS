@@ -9,7 +9,7 @@ export class Ticket {
     fechaCreacion;
 
     constructor(titulo, descripcion, prioridad, departamento, tecnico) {
-        this.id = Math.random()*1000; // ID único autogenerado
+        this.id = generarIdUnico(); // ID único autogenerado
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.prioridad = prioridad;
@@ -18,4 +18,13 @@ export class Ticket {
         this.fechaCreacion = new Date().toISOString();
         this.tecnico = tecnico;
     }
+}
+
+// función para generar el id de los tickets
+
+function generarIdUnico() {
+    let ultimoId = localStorage.getItem("ultimoId") || 1; 
+    let nuevoId = parseInt(ultimoId) + 1; // Incrementar en 1
+    localStorage.setItem("ultimoId", nuevoId); // Guardar el nuevo ID
+    return nuevoId;
 }
