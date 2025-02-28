@@ -138,3 +138,66 @@ body {
     background-color: #3f437b;
     font-size:0.7rem;
 }
+
+.contenido form {
+    width: 60%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contenido form input[type="text"],
+.contenido form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0; /* Mismo margen para todos */
+    box-sizing: border-box; /* Evita desbordamiento */
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    color: #fff;
+}
+
+.contenido form select option {
+    color: #000000;
+}
+
+
+
+.contenido form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5e63b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.contenido form button:hover {
+    background-color: #3f437b;
+}
+
+.tabla button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    background-color: #5e63b4;
+}
+
+/* Botón Eliminar */
+.tabla button#eliminar {
+    background-color: #b45e5e !important; /* Rojo para eliminar */
+}
+
+.tabla button:hover {
+    opacity: 0.8;
+}
