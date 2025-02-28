@@ -22,7 +22,12 @@
                 <br>
                 Descripción: <input type="text" name="descripcion">
                 <br>
-                Prioridad: <input type="text" name="prioridad">
+                Prioridad: 
+                <select name="prioridad">
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
                 <br>
                 Estado: 
                 <select name="estado">
@@ -54,7 +59,7 @@
                 // Llenar los campos del formulario con los datos del ticket
                 document.querySelector('input[name="titulo"]').value = ticket.titulo;
                 document.querySelector('input[name="descripcion"]').value = ticket.descripcion;
-                document.querySelector('input[name="prioridad"]').value = ticket.prioridad;
+                document.querySelector('select[name="prioridad"]').value = ticket.prioridad;
                 document.querySelector('select[name="estado"]').value = ticket.estado;
                 document.querySelector('select[name="departamento"]').value = ticket.departamento;
             } else {
@@ -92,7 +97,7 @@
                 ...ticketOriginal,
                 titulo: document.querySelector('input[name="titulo"]').value,
                 descripcion: document.querySelector('input[name="descripcion"]').value,
-                prioridad: document.querySelector('input[name="prioridad"]').value,
+                prioridad: document.querySelector('select[name="prioridad"]').value,
                 estado: document.querySelector('select[name="estado"]').value,
                 departamento: nuevoDepartamento,
                 tecnico: nuevoTecnico
