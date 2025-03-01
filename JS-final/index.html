@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Incidencias</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/barraLateral.css">
+    <link rel="stylesheet" href="css/btnLogOut.css">
+    <link rel="icon" type="image/x-icon" href="imagenes/icono.ico">
+</head>
+<body>
+    <div class="contenedor">
+        <nav class="cabecera">
+            <div class="titulo" id="nombreUsuario"></div>
+            <button class="btnLogOut" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </nav>
+
+        <aside class="barraLateral">
+            <button class="hamburguesa" onclick="abrirListado()">☰</button>
+            <h4>Tickets resueltos</h4>
+            <ul id="listaTicketsResueltos" class="listaTicketsResueltos">               
+                <!-- Aquí se insertarán los tickets resueltos dinámicamente -->
+            </ul>
+            
+        </aside>
+    
+        <div class="contenido">            
+            <table id="tablaTickets" class="tabla">
+                <thead>
+                    <tr class="filaTitulos">
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Prioridad</th>
+                        <th>Estado</th>
+                        <th>Departamento</th>
+                        <th>Fecha de Creación</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTablaTickets">
+                    <!-- Aquí se insertarán las filas dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="js/cargarTicket.js"></script>
+    <script src="js/eliminarTicket.js"></script>
+    <script src="js/cerrarSesion.js"></script>
+    <script src="js/barraLateral.js"></script>        
+    <script src="js/cargarDatosFicticios.js"></script>
+</body>
+</html>
