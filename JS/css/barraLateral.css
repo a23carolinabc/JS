@@ -1,0 +1,107 @@
+body {
+    font-family: Calibri;
+    color: #fff;
+
+    margin: 0;
+
+    background: url('../imagenes/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.hamburguesa {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: -3rem;
+    top: 10px;
+}
+.hamburguesa:active, .hamburguesa:focus{
+    outline: none;
+}
+
+/*#region BARRA LATERAL*/
+.barraLateral {
+    width: 20%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 10%;
+    left: -20%;
+    transition: left 0.3s ease;    
+}
+
+.barraLateral.abierta {
+    left: 0;
+}
+
+.barraLateral a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.barraLateral.abierta ~ .contenido {
+    margin-left: 250px;
+}
+/*#endregion */
+
+/*#region SCROLLBAR*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Fondo */
+::-webkit-scrollbar-track {    
+    background: rgba(255, 255, 255, 0.1);    
+    border-radius: 5px;
+}
+  
+/* Barra */
+::-webkit-scrollbar-thumb {
+    background: #132962;
+    border-radius: 5px;
+}
+  
+/* Barra on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:  #011035;
+}
+/*#endregion*/
+
+/*#region LISTA LATERAL*/
+h4{
+    padding-left: 15%;    
+    padding-top: 3%;
+    margin: 0;
+    font-size: 1.2rem;
+    margin: 5%;
+}
+
+.listaTicketsResueltos {
+    margin-top: 0;
+    height: 83%;
+    overflow:scroll;
+}
+
+.listaTicketsResueltos li {
+    font-size: 0.8rem;
+    list-style: none;
+    padding: 4px;
+    margin-bottom: 5px;
+}
+.listaTicketsResueltos {
+    padding-left: 6%;
+    padding-top: 2%;
+}
+
+.listaTicketsResueltos li:hover{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    color: #fff;
+    cursor:pointer;
+}
+/*#endregion*/

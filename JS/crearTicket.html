@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear ticket</title>    
+    <link rel="stylesheet" href="css/crearTicket.css">       
+    <link rel="stylesheet" href="css/aviso.css">        
+    <link rel="stylesheet" href="css/btnLogOut.css">     
+    <link rel="icon" type="image/x-icon" href="imagenes/icono.ico">   
+</head>
+<body>
+    <div id="aviso" class="aviso"></div>
+    <form class="contenedor" id="crearTicket">
+        <h2>Nuevo ticket</h2>
+
+        <input type="text" id="titulo" name="titulo" required placeholder="Título" autocomplete="off">
+        <br>
+        <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Descripción"></textarea>
+        <br>
+        <select name="prioridad" id="prioridad" required placeholder="prioridad">
+            <option value=0 disabled selected hidden>Prioridad</option>
+            <option value="Baja">Baja</option>
+            <option value="Media">Media</option>
+            <option value="Alta">Alta</option>
+        </select>
+        <br>
+        <select name="departamento" id="departamento" required>
+            <option value=0 disabled selected hidden>Departamento</option>
+            <option value="ASIR">ASIR</option>
+            <option value="DAW">DAW</option>
+            <option value="DAM">DAM</option>
+        </select>
+        <br>
+        <button type="submit">Crear</button>
+    </form>
+    <button class="btnLogOut" onclick="cerrarSesion()">Cerrar Sesión</a></button>
+
+
+    <script type="module" src="js/crearTicket.js"></script>
+    <script src="js/cerrarSesion.js"></script>
+</body>
+</html>

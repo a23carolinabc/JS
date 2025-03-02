@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../imagenes/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;    
+    font-size:1rem;
+}
+
+.contenedor {
+    display: flex;
+    min-height: 100vh;
+}
+
+/*#region CABECERA*/
+.cabecera {
+    width: 100%;
+    height:10%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.cabecera .titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px;
+}
+/*#endregion*/
+
+.contenido {
+    width: 80%;    
+    padding: 80px 20px 20px;
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+}
+
+/*#region TABLA*/
+.tabla {
+    width:90%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 5%;
+    overflow-y: scroll;
+    border-collapse: collapse;
+}
+
+.tabla h2 {
+    margin-top: 0;
+}
+
+.tabla label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.tabla tr{   
+    border-radius: 3px;
+    padding: 15px;
+}
+.tabla tr:not(.filaTitulos):hover{   
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor:pointer;
+}
+.tabla th{
+    text-align:center;
+    font-size:1.2rem;  
+    padding: 10px;    
+    padding-top: 15px;
+    cursor:default;
+}
+.tabla td{
+    width:fit-content;
+    text-align:center;
+    font-size:0.95rem;  
+    padding: 10px;
+}
+.tabla input,
+.tabla textarea,
+.tabla select{
+    margin:0;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+/*#endregion */
+
